@@ -1,23 +1,20 @@
-// src/components/API-10.js
+// src/components/API-11.js
 
 import React, { useState } from 'react'
 import { Card, Form, Col, Container } from 'react-bootstrap'
 
 import { wcBaseUrl, wcEndPoint } from '../utils'
 
-const API10 = () => {
+const API11 = () => {
   const [country, setCountry] = useState('USA')
   const wcFunction = 'geo-test'
 
   return (
     <Card>
-      <Card.Header>Session 2, API-10) Geo images</Card.Header>
+      <Card.Header>Session 2, API-11) Combined Grids & Images</Card.Header>
       <Card.Body>
-        <Card.Title>Geo Image</Card.Title>
-        <Card.Text>
-          Issue: I've never gotten StartWebSession["Chrome"] and WebExecute[ ]
-          to work. Nevertheless, it works here!
-        </Card.Text>
+        <Card.Title>Grids & Images</Card.Title>
+        <Card.Text>text here...</Card.Text>
         <p>
           API end-point is:
           {`https://.../${wcFunction}?country=${country}`}
@@ -40,4 +37,4 @@ const API10 = () => {
   )
 }
 
-export default API10
+export default API11

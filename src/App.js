@@ -10,9 +10,6 @@ import API7 from './components/API-7'
 import API8 from './components/API-8'
 import API9 from './components/API-9'
 import API10 from './components/API-10'
-// import ImageTwo from "./components/ImageTwo";
-// import ImageThree from "./components/ImageThree";
-// import AllTogether from "./components/AllTogether";
 
 import { Container, Col } from 'react-bootstrap'
 import './App.css'

@@ -93,7 +93,7 @@ const API7 = () => {
             </Col>
 
             <Col sm={{ span: 0, offset: 0 }}>
-              <p> records </p>
+              <p> todos </p>
             </Col>
             <Col sm={{ span: 2, offset: 0 }}>
               <Form.Control
