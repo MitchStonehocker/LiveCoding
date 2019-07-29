@@ -6,3 +6,8 @@ This is not a step-by-step for the beginner.  I assume you have familiarity with
 -	ReactJS (create-react-app)
 
 Start by opening 'WC APIs Session 1 v01r01p01.nb' and read through the short introduction and requirements section.  If you don’t have a local Mathematica installation go to http://www.wolfram.com/wolfram-one/ and sign up for free.
+
+TwitchTV Sessions:
+1) https://www.twitch.tv/events/ySTJx1J9SoOWFI7q86la2Q
+
+More to come...
