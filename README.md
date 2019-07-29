@@ -1,4 +1,4 @@
-# Live Coding: Building Wolfram Cloud APIs to JS Frontends and Serverless Backends
+# Live Coding: Building Wolfram Cloud APIs to JS Frontends and AWS Serverless Backends
 
 This is not a step-by-step for the beginner.  I assume you have familiarity with JavaScript React libraries and Wolfram Language.  All the technical tools needed can be downloaded, installed, configured and run for free in short order by following the instructions of each organization given your operating system.  You will need:
 -	npm (or similar)
