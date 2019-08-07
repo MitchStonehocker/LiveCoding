@@ -23,11 +23,7 @@ const API2 = () => {
         const result = await axios(
           `${wcBaseUrl}${wcEndPoint}${wcFunction}?x=${x.toString()}&y=${y.toString()}`
         )
-        console.log('>>>-RandomReal-fetchData-result->', result)
-        console.log('>>>-RandomReal-fetchData-result.data->', result.data)
         setData(result.data)
-        // setX("");
-        // setY("");
       } catch (error) {
         console.log('>>>-RandomReal-fetchData-error->', error)
         setIsError(true)
@@ -39,10 +35,6 @@ const API2 = () => {
     }
     setIsLoading(false)
   }
-
-  // useEffect(() => {
-  //   fetchData();
-  // }, [x, y]);
 
   const handleSubmit = event => {
     event.preventDefault()

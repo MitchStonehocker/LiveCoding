@@ -1,57 +1,47 @@
 // src/components/API-7.js
 
-import React, { useState } from 'react'
-import axios from 'axios'
-import { Card, Form, Col, Button, Table, Check } from 'react-bootstrap'
+import React, { useState } from "react";
+import axios from "axios";
+import { Card, Form, Col, Button, Table } from "react-bootstrap";
 
-import { wcBaseUrl, wcEndPoint } from '../utils'
+import { wcBaseUrl, wcEndPoint } from "../utils";
 
 const API7 = () => {
-  const [data, setData] = useState([])
-  const [isLoading, setIsLoading] = useState(false)
-  const [isError, setIsError] = useState(false)
-  const [n, setN] = useState('')
-  const [completed, setCompleted] = useState('')
+  const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const [n, setN] = useState("");
+  const [completed, setCompleted] = useState("completed");
 
-  const wcFunction = 'todos'
+  const wcFunction = "todos";
 
   const handleSubmit = event => {
-    event.preventDefault()
-    fetchData()
-  }
+    event.preventDefault();
+    fetchData();
+  };
 
   const fetchData = async () => {
-    setIsError(false)
-    setIsLoading(true)
+    setIsError(false);
+    setIsLoading(true);
     if (completed && n) {
       try {
         const result = await axios(
           `${wcBaseUrl}${wcEndPoint}${wcFunction}?completeTF=${
-            completed === 'completed' ? 'True' : 'False'
+            completed === "completed" ? "True" : "False"
           }&n=${n.toString()}`
-        )
-        // console.log(">>>-JsonObjectTwo-fetchData-result->", result);
-        console.log('>>>-JsonObjectTwo-fetchData-result.data->', result.data)
-        setData(result.data)
-        // setX("");
-        // setY("");
+        );
+        setData(result.data);
       } catch (error) {
-        console.log('>>>-JsonObjectTwo-fetchData-error->', error)
-        setIsError(true)
+        console.log(">>>-JsonObjectTwo-fetchData-error->", error);
+        setIsError(true);
       }
     } else {
-      setIsError(true)
-      setIsLoading(false)
-      return
+      setIsError(true);
+      setIsLoading(false);
+      return;
     }
-    setIsLoading(false)
-  }
-
-  // useEffect(() => {
-  //   fetchData();
-  // }, [part, n]);
-
-  console.log('>>>-API-7->', completed)
+    setIsLoading(false);
+  };
 
   return (
     <Card>
@@ -66,7 +56,7 @@ const API7 = () => {
         <p>
           {completed && n
             ? `https://.../${wcFunction}?part=${completed.toString()}&n=${n.toString()}`
-            : 'Make selection.'}
+            : "Make selection."}
         </p>
         <hr />
         <Form onSubmit={handleSubmit}>
@@ -74,21 +64,19 @@ const API7 = () => {
             <Col sm={{ span: 0, offset: 0 }}>
               <Form.Check
                 inline
-                type='checkbox'
-                label='Complete'
-                id='completed'
-                checked={completed === 'completed'}
+                type="checkbox"
+                label="Complete"
+                id="completed"
+                checked={completed === "completed"}
                 onChange={e => setCompleted(e.target.id)}
-                onClick={e => setCompleted(e.target.id)}
               />
               <Form.Check
                 inline
-                type='checkbox'
-                label='Incomplete'
-                id='incomplete'
-                checked={completed === 'incomplete'}
+                type="checkbox"
+                label="Incomplete"
+                id="incomplete"
+                checked={completed === "incomplete"}
                 onChange={e => setCompleted(e.target.id)}
-                onClick={e => setCompleted(e.target.id)}
               />
             </Col>
 
@@ -97,19 +85,19 @@ const API7 = () => {
             </Col>
             <Col sm={{ span: 2, offset: 0 }}>
               <Form.Control
-                className='input'
-                type='text'
-                placeholder='how many?'
-                name='n'
-                size='sm'
+                className="input"
+                type="text"
+                placeholder="how many?"
+                name="n"
+                size="sm"
                 value={n}
                 onChange={event => setN(event.target.value)}
               />
             </Col>
 
             <Col sm={{ span: 3, offset: 0 }}>
-              <Button type='submit' disabled={isLoading}>
-                {isLoading ? '...calling WC...' : `Get ${completed}`}
+              <Button type="submit" disabled={isLoading}>
+                {isLoading ? "...calling WC..." : `Get ${completed}`}
               </Button>
             </Col>
           </Form.Row>
@@ -118,7 +106,7 @@ const API7 = () => {
               {isError && !completed && !n ? (
                 <p>Enter Values...</p>
               ) : (
-                <Table striped bordered hover size='sm'>
+                <Table striped bordered hover size="sm">
                   <thead>
                     <tr>
                       <th>id</th>
@@ -142,7 +130,7 @@ const API7 = () => {
         </Form>
       </Card.Body>
     </Card>
-  )
-}
+  );
+};
 
-export default API7
+export default API7;

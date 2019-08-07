@@ -1,6 +1,6 @@
 // src/utils/index.js
 
-const wcBaseUrl = "... get yours from $CloudBase in a .nb ...";
+const wcBaseUrl = "https://www.wolframcloud.com/objects/mitch/";
 const wcEndPoint = "live-coding/";
 
 export { wcBaseUrl, wcEndPoint };

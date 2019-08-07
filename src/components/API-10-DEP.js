@@ -8,11 +8,10 @@ import { wcBaseUrl, wcEndPoint } from "../utils";
 const API9 = () => {
   const wcFunction = "geo-pins";
   const it = "users";
-  const n = "All";
 
   return (
     <Card>
-      <Card.Header>Session 3, API-9) Geo image</Card.Header>
+      <Card.Header>Session 3, API-10) Geo image</Card.Header>
       <Card.Body>
         <Card.Title>Geo Image</Card.Title>
         <Card.Text>
@@ -21,11 +20,7 @@ const API9 = () => {
         </Card.Text>
         <p>
           API end-point is:
-          {wcFunction && it ? (
-            `https://.../${wcFunction}?it=${it}&n=${n}`
-          ) : (
-            <p>working...</p>
-          )}
+          {it ? `https://.../${wcFunction}?it=${it}` : "working..."}
         </p>
         <hr />
 
@@ -33,9 +28,7 @@ const API9 = () => {
           <Col sm={{ span: 2, offset: 0 }}>
             <img
               src={
-                wcFunction && it
-                  ? `${wcBaseUrl}${wcEndPoint}${wcFunction}?it=${it}&n=${n}`
-                  : null
+                it ? `${wcBaseUrl}${wcEndPoint}${wcFunction}?it=${it}` : null
               }
               alt="geoimage"
             />

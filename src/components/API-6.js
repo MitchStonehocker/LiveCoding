@@ -1,55 +1,45 @@
 // src/components/API-6.js
 
-import React, { useState } from 'react'
-import axios from 'axios'
-import { Card, Form, Col, Button, Table } from 'react-bootstrap'
+import React, { useState } from "react";
+import axios from "axios";
+import { Card, Form, Col, Button, Table } from "react-bootstrap";
 
-import { wcBaseUrl, wcEndPoint } from '../utils'
+import { wcBaseUrl, wcEndPoint } from "../utils";
 
 const API6 = () => {
-  const [data, setData] = useState([])
-  const [isLoading, setIsLoading] = useState(false)
-  const [isError, setIsError] = useState(false)
-  const [n, setN] = useState('')
-  const [part, setPart] = useState('title')
+  const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const [n, setN] = useState("");
+  const [part, setPart] = useState("body");
 
-  const wcFunction = 'wordcount'
+  const wcFunction = "wordcount";
 
   const handleSubmit = event => {
-    event.preventDefault()
-    fetchData()
-  }
+    event.preventDefault();
+    fetchData();
+  };
 
   const fetchData = async () => {
-    setIsError(false)
-    setIsLoading(true)
+    setIsError(false);
+    setIsLoading(true);
     if (part && n) {
       try {
         const result = await axios(
           `${wcBaseUrl}${wcEndPoint}${wcFunction}?part=${part.toString()}&n=${n.toString()}`
-        )
-        // console.log(">>>-JsonObjectTwo-fetchData-result->", result);
-        console.log('>>>-JsonObjectTwo-fetchData-result.data->', result.data)
-        setData(result.data)
-        // setX("");
-        // setY("");
+        );
+        setData(result.data);
       } catch (error) {
-        console.log('>>>-JsonObjectTwo-fetchData-error->', error)
-        setIsError(true)
+        console.log(">>>-JsonObjectTwo-fetchData-error->", error);
+        setIsError(true);
       }
     } else {
-      setIsError(true)
-      setIsLoading(false)
-      return
+      setIsError(true);
+      setIsLoading(false);
+      return;
     }
-    setIsLoading(false)
-  }
-
-  // useEffect(() => {
-  //   fetchData();
-  // }, [part, n]);
-
-  console.log('>>>-JsonObjectThree-part->', part)
+    setIsLoading(false);
+  };
 
   return (
     <Card>
@@ -62,7 +52,7 @@ const API6 = () => {
         <p>
           {part && n
             ? `https://.../${wcFunction}?part=${part.toString()}&n=${n.toString()}`
-            : 'Make selection.'}
+            : "Make selection."}
         </p>
         <hr />
         <Form onSubmit={handleSubmit}>
@@ -74,23 +64,23 @@ const API6 = () => {
             {/* Select control goes here */}
 
             <Col sm={{ span: 0, offset: 0 }}>
-              <p> records </p>
+              <p> words </p>
             </Col>
             <Col sm={{ span: 2, offset: 0 }}>
               <Form.Control
-                className='input'
-                type='text'
-                placeholder='how many?'
-                name='n'
-                size='sm'
+                className="input"
+                type="text"
+                placeholder="how many?"
+                name="n"
+                size="sm"
                 value={n}
                 onChange={event => setN(event.target.value)}
               />
             </Col>
 
             <Col sm={{ span: 3, offset: 0 }}>
-              <Button type='submit' disabled={isLoading}>
-                {isLoading ? '...calling WC...' : `Get ${part}`}
+              <Button type="submit" disabled={isLoading}>
+                {isLoading ? "...calling WC..." : `Get ${part}`}
               </Button>
             </Col>
           </Form.Row>
@@ -99,7 +89,7 @@ const API6 = () => {
               {isError && !part && !n ? (
                 <p>Enter Values...</p>
               ) : (
-                <Table striped bordered hover size='sm'>
+                <Table striped bordered hover size="sm">
                   <thead>
                     <tr>
                       <th>word</th>
@@ -121,7 +111,7 @@ const API6 = () => {
         </Form>
       </Card.Body>
     </Card>
-  )
-}
+  );
+};
 
-export default API6
+export default API6;

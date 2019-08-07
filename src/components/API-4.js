@@ -24,11 +24,7 @@ const API4 = () => {
         const result = await axios(
           `${wcBaseUrl}${wcEndPoint}${wcFunction}?x=${x.toString()}&y=${y.toString()}&z=${z.toString()}`
         )
-        console.log('>>>-RandomArray-fetchData-result->', result)
-        console.log('>>>-RandomArray-fetchData-result.data->', result.data)
         setData(result.data)
-        // setX("");
-        // setY("");
       } catch (error) {
         console.log('>>>-RandomArray-fetchData-error->', error)
         setIsError(true)
@@ -40,10 +36,6 @@ const API4 = () => {
     }
     setIsLoading(false)
   }
-
-  // useEffect(() => {
-  //   fetchData();
-  // }, [x, y]);
 
   const handleSubmit = event => {
     event.preventDefault()
