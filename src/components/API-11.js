@@ -5,16 +5,27 @@ import { Card, Form, Col, Container, Button } from "react-bootstrap";
 
 import { wcBaseUrl, wcEndPoint } from "../utils";
 
-const API11 = props => {
+const API11 = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const [isError, setIsError] = useState(false);
   const [reading, setReading] = useState("");
   const [rows, setRows] = useState(5);
+  const [apiURL, setApiURL] = useState(5);
 
   const wcFunction = "gauge-grid";
   const bpW = 72 * 7.5;
   const h = 11;
   const w = 40;
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    setIsLoading(true);
+
+    setApiURL(
+      `${wcBaseUrl}${wcEndPoint}${wcFunction}?reading=${reading}&rows=${rows}`
+    );
+
+    setIsLoading(false);
+  };
 
   return (
     <Card>
@@ -29,7 +40,7 @@ const API11 = props => {
             : " Enter current reading..."}
         </p>
         <hr />
-        <Form>
+        <Form onSubmit={handleSubmit}>
           <Form.Row>
             <Col sm={{ span: 0, offset: 0 }}>
               <p>Enter reading</p>
@@ -59,24 +70,30 @@ const API11 = props => {
                 onChange={event => setRows(event.target.value)}
               />
             </Col>
-          </Form.Row>
-          <Form.Row>
-            <Container>
-              <Col sm={{ span: 2, offset: 0 }}>
-                <img
-                  src={
-                    reading && rows
-                      ? `${wcBaseUrl}${wcEndPoint}${wcFunction}?reading=${reading}&rows=${rows}`
-                      : null
-                  }
-                  alt="live-readings"
-                  width={bpW}
-                  height={bpW * (h / w)}
-                />
-              </Col>
-            </Container>
+            <Col sm={{ span: 2, offset: 0 }}>
+              <Button
+                type="submit"
+                disabled={!isLoading && reading && rows ? false : true}
+              >
+                {isLoading ? "...calling WC..." : "Submit"}
+              </Button>
+            </Col>
           </Form.Row>
         </Form>
+        <Container>
+          <Col sm={{ span: 2, offset: 0 }}>
+            {apiURL && reading && rows ? (
+              <img
+                src={apiURL}
+                alt="submit"
+                width={bpW}
+                height={bpW * (h / w)}
+              />
+            ) : (
+              <p>Enter a reading...</p>
+            )}
+          </Col>
+        </Container>
       </Card.Body>
     </Card>
   );

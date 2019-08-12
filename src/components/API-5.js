@@ -11,9 +11,9 @@ const API5 = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [n, setN] = useState("");
-  const [it, setIt] = useState("users");
 
   const wcFunction = "placeholder";
+  const it = "users";
 
   const handleSubmit = event => {
     event.preventDefault();

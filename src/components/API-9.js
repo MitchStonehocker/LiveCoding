@@ -15,10 +15,7 @@ const API9 = () => {
       <Card.Header>Session 3, API-9) Geo image</Card.Header>
       <Card.Body>
         <Card.Title>Geo Image</Card.Title>
-        <Card.Text>
-          Issue: I've never gotten StartWebSession["Chrome"] and WebExecute[ ]
-          to work. Nevertheless, it works here!
-        </Card.Text>
+        <Card.Text>GeoPaths and GeoMarkers</Card.Text>
         <p>
           API end-point is:
           {wcFunction && it ? (

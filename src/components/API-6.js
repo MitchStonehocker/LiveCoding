@@ -11,9 +11,9 @@ const API6 = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [n, setN] = useState("");
-  const [part, setPart] = useState("body");
 
   const wcFunction = "wordcount";
+  const part = "body";
 
   const handleSubmit = event => {
     event.preventDefault();
