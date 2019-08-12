@@ -1,14 +1,14 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 Live coding sessions are available at YouTube
-[Session 1](https://www.youtube.com/watch?v=ntMZbJf38Mo&t=184s)
-[Session 2](https://www.youtube.com/watch?v=gbz6Kf_W4Do&t=4s)
-[Session 2](https://www.youtube.com/watch?v=Dev1E_eI3dY&t=6s)
+[Session 1](https://www.youtube.com/watch?v=ntMZbJf38Mo&t=184s),
+[Session 2](https://www.youtube.com/watch?v=gbz6Kf_W4Do&t=4s), and
+[Session 2](https://www.youtube.com/watch?v=Dev1E_eI3dY&t=6s),
 
 and TwitchTV
-[Session 1](https://www.twitch.tv/videos/457922436)
-[Session 2](https://www.twitch.tv/videos/460691831)
-[Session 3](https://www.twitch.tv/videos/464271890)
+[Session 1](https://www.twitch.tv/videos/457922436),
+[Session 2](https://www.twitch.tv/videos/460691831), and
+[Session 3](https://www.twitch.tv/videos/464271890).
 
 ## Available Scripts
 
