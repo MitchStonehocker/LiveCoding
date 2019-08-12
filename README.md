@@ -10,9 +10,9 @@ and TwitchTV
 [Session 2](https://www.twitch.tv/videos/460691831), and
 [Session 3](https://www.twitch.tv/videos/464271890).
 
-## The JavaScript side
+## The Wolfram Language side
 
-The
+The Wolfram Language (WL) side is in the ‘WLNotebooks’ folder.  The NoteBooks (.nb) are Mathematica version 12 and can be opened in previous versions.  If you don’t have a Mathematica desktop license you can sign up for a [free cloud account]( https://www.wolframcloud.com/).  Then download the .nb files to your WolframCloud account.
 
 ## The JavaScript side
 
