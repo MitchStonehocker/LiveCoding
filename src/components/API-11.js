@@ -1,31 +1,29 @@
 // src/components/API-11.js
 
-import React, { useState } from "react";
-import { Card, Form, Col, Container, Button } from "react-bootstrap";
+import React, { useState } from 'react'
+import { Card, Form, Col, Container, Button } from 'react-bootstrap'
 
-import { wcBaseUrl, wcEndPoint } from "../utils";
+import { wcBaseUrl, wcEndPoint } from '../utils'
 
 const API11 = () => {
-  const [isLoading, setIsLoading] = useState(false);
-  const [reading, setReading] = useState("");
-  const [rows, setRows] = useState(5);
-  const [apiURL, setApiURL] = useState(5);
+  const [isLoading, setIsLoading] = useState(false)
+  const [reading, setReading] = useState('')
+  const [rows, setRows] = useState(5)
+  const [apiURL, setApiURL] = useState(5)
 
-  const wcFunction = "gauge-grid";
-  const bpW = 72 * 7.5;
-  const h = 11;
-  const w = 40;
+  const wcFunction = 'gauge-grid'
+  const bpW = 72 * 7.5
+  const h = 11
+  const w = 40
 
   const handleSubmit = event => {
-    event.preventDefault();
-    setIsLoading(true);
-
+    event.preventDefault()
+    setIsLoading(true)
     setApiURL(
       `${wcBaseUrl}${wcEndPoint}${wcFunction}?reading=${reading}&rows=${rows}`
-    );
-
-    setIsLoading(false);
-  };
+    )
+    setIsLoading(false)
+  }
 
   return (
     <Card>
@@ -37,7 +35,7 @@ const API11 = () => {
           API end-point is:
           {reading && rows
             ? ` https://.../${wcFunction}?reading=${reading}&rows=${rows}`
-            : " Enter current reading..."}
+            : ' Enter current reading...'}
         </p>
         <hr />
         <Form onSubmit={handleSubmit}>
@@ -47,11 +45,11 @@ const API11 = () => {
             </Col>
             <Col sm={{ span: 2, offset: 0 }}>
               <Form.Control
-                className="input"
-                type="text"
-                placeholder="reading"
-                name="reading"
-                size="sm"
+                className='input'
+                type='text'
+                placeholder='reading'
+                name='reading'
+                size='sm'
                 value={reading}
                 onChange={event => setReading(event.target.value)}
               />
@@ -61,21 +59,18 @@ const API11 = () => {
             </Col>
             <Col sm={{ span: 2, offset: 0 }}>
               <Form.Control
-                className="input"
-                type="text"
-                placeholder="number of..."
-                name="rows"
-                size="sm"
+                className='input'
+                type='text'
+                placeholder='number of...'
+                name='rows'
+                size='sm'
                 value={rows}
                 onChange={event => setRows(event.target.value)}
               />
             </Col>
             <Col sm={{ span: 2, offset: 0 }}>
-              <Button
-                type="submit"
-                disabled={!isLoading && reading && rows ? false : true}
-              >
-                {isLoading ? "...calling WC..." : "Submit"}
+              <Button type='submit' disabled={!(!isLoading && reading && rows)}>
+                {isLoading ? '...calling WC...' : 'Submit'}
               </Button>
             </Col>
           </Form.Row>
@@ -85,7 +80,7 @@ const API11 = () => {
             {apiURL && reading && rows ? (
               <img
                 src={apiURL}
-                alt="submit"
+                alt='submit'
                 width={bpW}
                 height={bpW * (h / w)}
               />
@@ -96,7 +91,7 @@ const API11 = () => {
         </Container>
       </Card.Body>
     </Card>
-  );
-};
+  )
+}
 
-export default API11;
+export default API11
