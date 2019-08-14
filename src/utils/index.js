@@ -1,6 +1,6 @@
 // src/utils/index.js
 
-const wcBaseUrl = "https://www.wolframcloud.com/obj/mitch/";
-const wcEndPoint = "live-coding/";
+const wcBaseUrl = "--- your WC base ---";
+const wcEndPoint = "--- your endpoint ---";
 
 export { wcBaseUrl, wcEndPoint };
